@@ -6,13 +6,14 @@ const triedBut = (bearArray) => {
     domString += `
     <div class="card mb-3" style="width: 18rem;" id=${i}>      
         <div id="bear-card" class="card-body">
+        <h5>Tried!!</h5>
           <h4 ${item.name}>Name: ${item.name}</h4>
-          <p class="card-text">House: ${item.description}</p>
+          <p class="card-text">Detail: ${item.description}</p>
           <button type="button" class="btn btn-danger" id="${i}">Tried</button> 
         </div>
       </div>`;
   });
-  printToDom('#bears', domString);
+  printToDom('#tries', domString);
 };
 
 const caughtBut = (caught) => {

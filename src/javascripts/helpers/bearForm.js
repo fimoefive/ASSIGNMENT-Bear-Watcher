@@ -47,9 +47,9 @@ const bearFormCard = (event) => {
 };
 
 const clickEvents = () => {
-  document.querySelector('#submitB').addEventListener('click', bearFormCard);
-  document.querySelector('#tries').addEventListener('click', triedBut);
-  document.querySelector('#catches').addEventListener('click', caughtBut);
+  document.querySelector('#form').addEventListener('click', bearFormCard);
+  triedBut(bears);
+  caughtBut(bears);
 };
 
 export default { clickEvents };

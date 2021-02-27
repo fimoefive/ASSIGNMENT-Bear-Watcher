@@ -7,20 +7,24 @@
   <title>Bear Watcher</title>
 </head>
   <body>
+
     <div id="app"></div>
 
-    <label for="name" id="name" class="text-white">Bear Name</label>
-    
+    <h2 for="name" id="name" class="text-black-50">BEAR WATCHER</h2>
+
+    <div class="col border border-primary text-black-50">All the bears you are stalking today</div>
     <div id="bears">
       <div class="row mt-3" id="bearCards">
-        <div class="col border border-primary text-white">All the bears you are stalking today
-          <div class="col-sm d-flex justify-content-around flex-wrap" id="bearContainer"></div>
-        </div>
+        <div class="col-sm d-flex justify-content-around flex-wrap" id="bear-container"></div>
+      </div>
     </div>
-    
+
+    <div id="tries"></div>
+    <div id="catches"></div>
     <div id="form"></div>
 
 
+    <footer>&copy;2021 MARTIN SISK</footer>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
