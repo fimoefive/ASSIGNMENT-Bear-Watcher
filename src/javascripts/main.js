@@ -1,10 +1,6 @@
 import '../styles/main.scss';
 import { clickEvents } from './helpers/bearForm';
-import { bearBuilder } from './helpers/river.js';
-
-
-
-
+import { bearBuilder, bears } from './helpers/river';
 
 const initialize = () => {
   bearBuilder(bears);
