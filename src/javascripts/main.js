@@ -1,8 +1,14 @@
 import '../styles/main.scss';
+import { clickEvents } from './helpers/bearForm';
+import { bearBuilder } from './helpers/river.js';
 
-const init = () => {
-  $('#app').html('<h1>HELLO! You are up and running!</h1>');
-  console.log('YOU ARE UP AND RUNNING!');
+
+
+
+
+const initialize = () => {
+  bearBuilder(bears);
+  clickEvents();
 };
 
-init();
+initialize();
