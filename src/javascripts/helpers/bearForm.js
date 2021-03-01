@@ -30,14 +30,15 @@ const getInfo = (event) => {
 };
 
 const bearFormCard = (event) => {
-  const formId = event.target.id;
+  const formId = (event.target.id);
 
-  if (formId === 'button') {
+  if (formId === 'buttonForm') {
     document.querySelector('#form').innerHTML = `
   <form id="inputForm">
     <div class="card-body">
-      <h5 class="card-title">New Bear</h5>
+      <h5 class="card-title">Bear Form</h5>
       <input type="text" class="form-control" id="bearName">Bear Name</input>
+      <input type="text" class="form-control" id="bearName">Description</input>
       <div class="text">Track Bear</div>
       <button id="submitB" type="button" class="btn btn-primary">Submit</button>
     </div>
@@ -46,10 +47,21 @@ const bearFormCard = (event) => {
   document.querySelector('#submitB').addEventListener('click', getInfo);
 };
 
-const clickEvents = () => {
-  document.querySelector('#form').addEventListener('click', bearFormCard);
-  triedBut(bears);
-  caughtBut(bears);
+const deleteCard = (e) => {
+  const targetType = (e.target.type);
+  const targetId = Number(e.target.id);
+  if (targetType === 'button') {
+    const deleteBear = bears.findIndex((bear) => bear.id === targetId);
+    const removeBear = bears.splice(deleteBear, 1);
+  }
+  bearBuilder(bears);
 };
 
-export default { clickEvents };
+const clickEvents = () => {
+  document.querySelector('#buttonForm').addEventListener('click', bearFormCard);
+  triedBut(bears);
+  caughtBut(bears);
+  document.querySelector('#bears').addEventListener('click', deleteCard);
+};
+
+export default clickEvents;

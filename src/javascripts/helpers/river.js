@@ -35,12 +35,13 @@ export const bearBuilder = (bearArray) => {
         <div class="card-body">
           <h5 class="card-title">${element.name}</h5>
           <p class="card-text">${element.description}</p>
-          <button class="btn btn-primary" id="tried-${i}">Tried to catch a fish</button>
+          <button class="btn btn-primary" id="tried-${i}">Tried to catch</button>
           <div class="hidden">Tried <span id="triedNum-${i}">${element.tried}</span> times</div>
           <div class="triedBear" id="triedBear-${i}"></div>
           <button type="increment" class="btn btn-primary mt-3" id="caught-${i}">Caught a fish</button>
           <div class="hiddenAgain">Caught <span id="caughtNum-${i}">${element.caught}</span> times</div>
           <div class="caughtBear" id="caughtBear-${i}"></div>
+          <button type="button" class="btn btn-danger" id="${i}">Delete</button> 
         </div>
       </div >`;
   });

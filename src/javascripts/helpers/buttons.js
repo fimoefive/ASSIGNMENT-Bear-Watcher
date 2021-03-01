@@ -1,34 +1,31 @@
-import { printToDom } from './river';
-
-const triedBut = (bearArray) => {
-  let domString = '';
-  bearArray.forEach((item, i) => {
-    domString += `
-    <div class="card mb-3" style="width: 18rem;" id=${i}>      
-        <div id="bear-card" class="card-body">
-        <h5>Tried!!</h5>
-          <h4 ${item.name}>Name: ${item.name}</h4>
-          <p class="card-text">Detail: ${item.description}</p>
-          <button type="button" class="btn btn-danger" id="${i}">Tried</button> 
-        </div>
-      </div>`;
+const triedBut = (tries) => {
+  tries.forEach((element, i) => {
+    document.querySelector(`#tried-${i}`).addEventListener('click', () => {
+      const tried = {};
+      tried.time = new Date();
+      tried.type = 'Tried to catch @';
+      tried.score = Number(`${element.tried}`);
+      const triedScore = tried.score + 1;
+      document.querySelector(`#triedNum-${i}`).textContent = triedScore;
+      const htmlSentence = `${tried.type} ${tried.time}`;
+      document.querySelector(`#triedBear-${i}`).innerHTML = htmlSentence;
+    });
   });
-  printToDom('#tries', domString);
 };
 
-const caughtBut = (caught) => {
-  let caughtDom = '';
-  caught.forEach((item, i) => {
-    caughtDom += `
-    <div id="caught-card" class="card mb-3" style="width: 18rem;" id=${i}>
-        <div class="card-body">
-        <h5>Catch!!</h5>
-        <h5 class="card-text">${item.name}</h5>
-          <div class="h5 card-text text-dark"></div>
-        </div>
-      </div>`;
+const caughtBut = (catches) => {
+  catches.forEach((element, i) => {
+    document.querySelector(`#caught-${i}`).addEventListener('click', () => {
+      const caught = {};
+      caught.time = new Date();
+      caught.type = 'Got fish @';
+      caught.score = Number(`${element.caught}`);
+      caught.score += 1;
+      document.querySelector(`#caughtNum-${i}`).textContent = caught.score;
+      const htmlSentence = `${caught.type} ${caught.time}`;
+      document.querySelector(`#caughtBear-${i}`).innerHTML = htmlSentence;
+    });
   });
-  printToDom('#catches', caughtDom);
 };
 
 export { triedBut, caughtBut };
