@@ -42,8 +42,10 @@ const bearFormCard = (event) => {
       <input type="text" class="form-control" id="bearName" placeholder="Bear Name..."></input>
       <div>Description</div>
       <input type="text" class="form-control" id="bearDescription" placeholder="Description..."></input>
-      <div>Bear Image</div>
+      <div class="mb-3">
+      <div>Picture</div>
       <input type="url" class="form-control" id="picture" placeholder="Insert Image"></input>
+      </div>
       <button id='submitB' type='button' class="btn btn-primary">Track Bear</button>
     </div>
   </form>`;
@@ -51,15 +53,14 @@ const bearFormCard = (event) => {
   document.querySelector('#submitB').addEventListener('click', getInfo);
 };
 
-// const deleteCard = (e) => {
-//   const targetType = (e.target.type);
-//   const targetId = Number(e.target.id);
-//   if (targetType === 'button') {
-//     const deleteBear = bears.findIndex((bear) => bear.id === targetId);
-//     bears.splice(deleteBear, 1);
-//   }
-//   bearBuilder(bears);
-// };
+const deleteCard = (e) => {
+  const targetType = (e.target.type);
+  const targetId = (e.target.id);
+  if (targetType === 'button' && targetId.includes('unTrack')) {
+    bears.splice(targetId, 1);
+  }
+  bearBuilder(bears);
+};
 
 const handleButton = (e) => {
   const targetId = (e.target.id);
@@ -75,14 +76,11 @@ const handleButton = (e) => {
     bears[bearIndex].caught += 1;
     bears[bearIndex].timeCaught = new Date();
     bearBuilder(bears);
-  } else if (targetType === 'button') {
-    bears.splice(targetId, 1);
-    bearBuilder(bears);
   }
 };
 
 export const clickEvents = () => {
   document.querySelector('#buttonForm').addEventListener('click', bearFormCard);
-  document.querySelector('#bears').addEventListener('click', handleButton);
-  // document.querySelector('#bears').addEventListener('click', deleteCard);
+  document.querySelector('#bear-container').addEventListener('click', handleButton);
+  document.querySelector('#bear-container').addEventListener('click', deleteCard);
 };

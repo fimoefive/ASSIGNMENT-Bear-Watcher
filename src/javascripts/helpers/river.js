@@ -19,11 +19,11 @@ const bearBuilder = (bearsArray) => {
           <p id="caughtNum-${i}">Catches: ${element.caught}</p>
           <p class="card-text">Time: ${element.timeCaught}</p>
           <div class="caughtBear" id="caughtBear-${i}"></div>
-          <button type="button" class="btn btn-danger" id="${i}">Delete</button> 
+          <button type="button" class="btn btn-danger" id="unTrack-${i}">Delete</button> 
         </div>
       </div >`;
   });
-  printToDom('#bears', domString);
+  printToDom('#bear-container', domString);
 };
 
 export default bearBuilder;
