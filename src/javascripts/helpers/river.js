@@ -1,49 +1,26 @@
-export const bears = [
-  {
-    name: 'Ed',
-    description: 'Senior bear',
-    tried: 15,
-    caught: 6,
-    id: '1',
-  },
-  {
-    name: 'Carla',
-    description: 'Patient',
-    tried: 16,
-    caught: 9,
-    id: '2',
-  },
-  {
-    name: 'Kathy',
-    description: 'Energetic',
-    tried: 14,
-    caught: 7,
-    id: '3',
-  },
-];
-
-export const printToDom = (divId, printText) => {
+const printToDom = (divId, printText) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = printText;
 };
 
-export const bearBuilder = (bearArray) => {
+const bearBuilder = (bearsArray) => {
   let domString = '';
-  bearArray.forEach((element, i) => {
+  bearsArray.forEach((element, i) => {
     domString += ` 
     <div class="card text-danger" style = "width: 16rem;" id = "${i}">
         <div class="card-body">
           <h5 class="card-title">${element.name}</h5>
-          <p class="card-text">${element.description}</p>
-          <button class="btn btn-primary" id="tried-${i}">Tried to catch</button>
-          <div class="hidden">Tried <span id="triedNum-${i}">${element.tried}</span> times</div>
-          <div class="triedBear" id="triedBear-${i}"></div>
-          <button type="increment" class="btn btn-primary mt-3" id="caught-${i}">Caught a fish</button>
-          <div class="hiddenAgain">Caught <span id="caughtNum-${i}">${element.caught}</span> times</div>
+          <p class="card-text">Description: ${element.description}</p>
+          <button type="button" class="btn btn-primary" id="triesBut-${i}">Attempts</button>
+          <p class="card-text">${element.tries} times</p>
+          <button type="button" class="btn btn-primary mt-3" id="caughtBut-${i}">Caught</button>
+          <p id="caughtNum-${i}">Catches: ${element.caught}</p>
           <div class="caughtBear" id="caughtBear-${i}"></div>
           <button type="button" class="btn btn-danger" id="${i}">Delete</button> 
         </div>
       </div >`;
   });
-  printToDom('#bear-container', domString);
+  printToDom('#bears', domString);
 };
+
+export default bearBuilder;
