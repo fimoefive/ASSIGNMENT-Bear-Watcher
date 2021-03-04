@@ -7,16 +7,22 @@ const getInfo = (event) => {
 
   const name = document.querySelector('#bearName').value;
   const description = document.querySelector('#bearDescription').value;
+  const imgUrl = document.querySelector('#picture').value;
   const tries = 0;
+  const timeTried = Date();
   const caught = 0;
+  const timeCaught = Date();
   const bearId = bears.map((bear) => bear.id).sort((a, b) => a - b);
   const id = bearId.length ? bearId[(bearId.length - 1)] + 1 : 1;
 
   const bearObj = {
     name,
     description,
+    imgUrl,
     tries,
+    timeTried,
     caught,
+    timeCaught,
     id,
   };
 
@@ -36,8 +42,9 @@ const bearFormCard = (event) => {
       <input type="text" class="form-control" id="bearName" placeholder="Bear Name..."></input>
       <div>Description</div>
       <input type="text" class="form-control" id="bearDescription" placeholder="Description..."></input>
-      <div class="text">Track Bear</div>
-      <button id='submitB' type='button' class="btn btn-primary">Submit</button>
+      <div>Bear Image</div>
+      <input type="url" class="form-control" id="picture" placeholder="Insert Image"></input>
+      <button id='submitB' type='button' class="btn btn-primary">Track Bear</button>
     </div>
   </form>`;
   }
@@ -61,10 +68,12 @@ const handleButton = (e) => {
   if (targetType === 'button' && targetId.includes('triesBut')) {
     const bearIndex = Number(targetId.split('-')[1]);
     bears[bearIndex].tries += 1;
+    bears[bearIndex].timeTried = new Date();
     bearBuilder(bears);
   } else if (targetType === 'button' && targetId.includes('caughtBut')) {
     const bearIndex = Number(targetId.split('-')[1]);
     bears[bearIndex].caught += 1;
+    bears[bearIndex].timeCaught = new Date();
     bearBuilder(bears);
   } else if (targetType === 'button') {
     bears.splice(targetId, 1);
