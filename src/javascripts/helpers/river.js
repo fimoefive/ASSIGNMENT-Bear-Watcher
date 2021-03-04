@@ -11,8 +11,8 @@ const bearBuilder = (bearsArray) => {
         <div class="card-body">
           <h5 class="card-title">${element.name}</h5>
           <p class="card-text">Description: ${element.description}</p>
-          <button type="button" class="btn btn-primary" id="triesBut-${i}">Attempts</button>
-          <p class="card-text">${element.tries} times</p>
+          <button type="button" class="btn btn-primary" id="triesBut-${i}">Attempt</button>
+          <p class="card-text">Tries: ${element.tries}</p>
           <button type="button" class="btn btn-primary mt-3" id="caughtBut-${i}">Caught</button>
           <p id="caughtNum-${i}">Catches: ${element.caught}</p>
           <div class="caughtBear" id="caughtBear-${i}"></div>

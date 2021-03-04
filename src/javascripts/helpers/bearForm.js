@@ -32,9 +32,10 @@ const bearFormCard = (event) => {
     document.querySelector('#form').innerHTML = `
   <form id="inputForm">
     <div class="card-body">
-      <h5 class="card-title">Bear Form</h5>
-      <input type="text" class="form-control" id="bearName" placeholder="Name...">Bear Name</input>
-      <input type="text" class="form-control" id="bearDescription" placeholder="Description...">Detail</input>
+      <h4 class="card-title">Bear Name</h4>
+      <input type="text" class="form-control" id="bearName" placeholder="Bear Name..."></input>
+      <div>Description</div>
+      <input type="text" class="form-control" id="bearDescription" placeholder="Description..."></input>
       <div class="text">Track Bear</div>
       <button id='submitB' type='button' class="btn btn-primary">Submit</button>
     </div>
@@ -66,7 +67,6 @@ const handleButton = (e) => {
     bears[bearIndex].caught += 1;
     bearBuilder(bears);
   } else if (targetType === 'button') {
-    // const deleteBear = bears.findIndex((bear) => bear.id === targetId);
     bears.splice(targetId, 1);
     bearBuilder(bears);
   }
