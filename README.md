@@ -4,7 +4,7 @@ Each year between July and September brown bears in the Katmai National Park con
 
 You have been tasked with creating a site scientists and park ranger can use to track these bears.
 
-## Netlify Link: mjs-bear-watcher.netlify.app
+## Netlify Link: https://mjs-bear-watcher.netlify.app
 ## Get Started
 
 1. Clone this repo
